@@ -1,0 +1,8 @@
+1 norte 2003
+2 Sul 2004
+3 Clinica_do_norte 2003
+4 Clinica_do_minho 2000
+5 Clinica_do_centro 2003
+6 Vamos_ficar_bem 2005
+7 OLA 2000
+8 Boa_Vista 2010
