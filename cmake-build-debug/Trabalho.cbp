@@ -8,76 +8,80 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug"/>
+				<Option working_dir="/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Trabalho">
-				<Option output="C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Trabalho.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 Trabalho"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Trabalho/fast">
-				<Option output="C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Trabalho.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
-					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 Trabalho/fast"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug"/>
+				<Option working_dir="/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Trabalho">
+				<Option output="/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Trabalho" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Trabalho"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Trabalho/fast">
+				<Option output="/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Trabalho" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Trabalho/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/arturcunha/Documents/GitHub/Trabalho1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Artur Cunha/CLionProjects/Trabalho/main.c">
+		<Unit filename="/Users/arturcunha/Documents/GitHub/Trabalho1/main.c">
 			<Option target="Trabalho"/>
 		</Unit>
-		<Unit filename="C:/Users/Artur Cunha/CLionProjects/Trabalho/CMakeLists.txt">
+		<Unit filename="/Users/arturcunha/Documents/GitHub/Trabalho1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
