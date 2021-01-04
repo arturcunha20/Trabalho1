@@ -1,0 +1,3 @@
+C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/CMakeFiles/Trabalho.dir
+C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Artur Cunha/CLionProjects/Trabalho/cmake-build-debug/CMakeFiles/rebuild_cache.dir
