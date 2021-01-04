@@ -6,9 +6,11 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Artur Cunha/CLionProjects/Trabalho/main.c
+C:/Users/Artur Cunha/Documents/GitHub/Trabalho1/main.c
 stdio.h
 -
 string.h
+-
+mm_malloc.h
 -
 

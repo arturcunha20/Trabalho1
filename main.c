@@ -1,5 +1,10 @@
 #include <stdio.h>
 #include <string.h>
+#include <mm_malloc.h>
+
+#define SEPARADOR -21
+#define SEPARADORID -6
+#define SEPARADORE -1
 
 typedef struct {
     char nome[50];
@@ -77,6 +82,12 @@ void ReadClinica()
     FILE *file;
     Clinica clic;
 
+    printf("%*s | %*s | %*s\n",
+           SEPARADORID, "ID",
+           SEPARADOR, "Nome",
+           SEPARADOR, "Ano de Fundacao"
+    );
+
     file = fopen("../Clinicas.txt","r");
     while (!feof(file))
     {
@@ -90,7 +101,13 @@ void ReadClinica()
             }
         }
 
-        printf("Id -> %d | Nome -> %s | Ano de Fundacao -> %d\n\n",clic.id ,clic.nome ,clic.ano);
+
+        printf("%*d | %*s | %*d\n",
+               SEPARADORID, clic.id,
+               SEPARADOR, clic.nome,
+               SEPARADOR, clic.ano
+        );
+        //printf("Id -> %d | Nome -> %s | Ano de Fundacao -> %d\n\n",clic.id ,clic.nome ,clic.ano);
 
     }
 
@@ -172,6 +189,7 @@ void InsertFuncionario()
         printf("\nDiga a seu Genero (M/m - Masculino | F/f - Feminino | O/o - Outro ) -> "); scanf(" %c",&func.genero);
     } while (func.genero != 'M' && func.genero != 'm' && func.genero != 'F' && func.genero != 'f' && func.genero != 'O' && func.genero != 'o');
 
+
     printf("\nDiga a seu Vencimento -> "); scanf("%d",&func.vencimeto);
     do{
         printf("\nDiga o seu Cargo (0 - Medico | 1 - Enfermeiro | 2 - auxiliar) -> "); scanf("%d",&func.cargo);
@@ -192,6 +210,17 @@ void ReadFuncionarios()
     FILE *file,*fileClic;
     Funcionario funcl;
     Clinica clic;
+
+    printf("%*s | %*s | %*s | %*s | %*s | %*s | %*s \n",
+           SEPARADORID,"ID",
+           SEPARADOR, "Nome",
+           SEPARADORID, "Genero",
+           SEPARADORID, "Idade",
+           SEPARADOR, "Vencimento",
+           SEPARADOR, "Cargo",
+           SEPARADOR, "Clinica"
+    );
+
 
     file = fopen("../funcionarios.txt","r");
     while (!feof(file))
@@ -231,9 +260,7 @@ void ReadFuncionarios()
                     case 'M': strcpy(cargo,"Enfermeiro"); break;
                     case 'm': strcpy(cargo,"Enfermeiro"); break;
                 } break;
-
             case 2:case 'F': strcpy(cargo,"Auxiliar"); break;
-
         }
 
         fileClic = fopen("../Clinicas.txt","r");
@@ -251,15 +278,20 @@ void ReadFuncionarios()
                 }
                 strcpy(nomeClic,clic.nome);
             }
-
-
         }
 
         fclose(fileClic);
 
 
-        printf("Id-> %d | Nome-> %s | Genero-> %c",funcl.id ,funcl.nome ,funcl.genero);
-        printf(" | Idade-> %d | Vencimento-> %d | Cargo-> %s | Clinica-> %s\n\n",funcl.idade ,funcl.vencimeto,cargo,nomeClic);
+        printf("%*d | %*s | %*c | %*d | %*d | %*s | %*s \n",
+               SEPARADORID,funcl.id,
+               SEPARADOR, funcl.nome,
+               SEPARADORID, funcl.genero,
+               SEPARADORID, funcl.idade,
+               SEPARADOR, funcl.vencimeto,
+               SEPARADOR, cargo,
+               SEPARADOR, nomeClic
+        );
     }
     contFuncionarios = funcl.id;
     fclose(file);
@@ -430,11 +462,21 @@ void InsertAgenda()
 void ReadAgenda()
 {
     int res;
-    char nomeFunc[50],nomeClic[50];
+    char ola[10],data[15],hora[15],nomeFunc[50],nomeClic[50];
     FILE *file,*fileC,*fileF;
     Clinica clic;
     Funcionario func;
     Agenda ag;
+
+
+    printf("%*s | %*s | %*s | %*s | %*s\n",
+           SEPARADORID, "ID",
+           SEPARADOR, "Nome Funcinario",
+           SEPARADOR, "Nome Clinica",
+           SEPARADOR, "Data",
+           SEPARADOR, "Hora"
+    );
+
 
 
     file = fopen("../Agenda.txt","r");
@@ -480,11 +522,39 @@ void ReadAgenda()
         }
         fclose(fileC);
 
-        printf("Id -> %d | Nome Funcionario -> %s | Nome Clinica -> %s | Data -> %d/%d/%d | Hora -> %d:%d\n\n",ag.id ,nomeFunc ,nomeClic,ag.dia,ag.mes,ag.ano,ag.hora,ag.minutos);
+
+        strcpy(data,"");
+        strcpy(ola,"");
+        itoa(ag.dia, ola, 10);
+        strcat(data,ola);
+        strcat(data,"/");
+        itoa(ag.mes, ola, 10);
+        strcat(data,ola);
+        strcat(data,"/");
+        itoa(ag.ano, ola, 10);
+        strcat(data,ola);
+
+        strcpy(hora,"");
+        strcpy(ola,"");
+        itoa(ag.hora, ola, 10);
+        strcat(hora,ola);
+        strcat(hora,":");
+        itoa(ag.minutos, ola, 10);
+        strcat(hora,ola);
+
+        printf("%*d | %*s | %*s | %*s | %*s\n",
+               SEPARADORID, ag.id,
+               SEPARADOR, nomeFunc,
+               SEPARADOR, nomeClic,
+               SEPARADOR, data,
+               SEPARADORE, hora
+        );
+        //printf("Id -> %d | Nome Funcionario -> %s | Nome Clinica -> %s | Data -> %d/%d/%d | Hora -> %d:%d\n\n",ag.id ,nomeFunc ,nomeClic,ag.dia,ag.mes,ag.ano,ag.hora,ag.minutos);
 
     }
-    printf("\n\n");
     fclose(file);
+    printf("\n\n");
+
 }
 
 
@@ -588,11 +658,122 @@ void Resumo()
     printf("\n\n");
 }
 
+void vencimentos()
+{    int res,contClinicas,i=0,contfuncionarios;
+    FILE *file,*fileF;
+    Clinica clic;
+    Funcionario funcl;
+
+    file = fopen("../Clinicas.txt","r");
+    while (!feof(file))
+    {
+        res = fscanf(file,"%d %s %d\n",&clic.id ,&clic.nome ,&clic.ano);
+
+        contClinicas = clic.id;
+    }
+    fclose(file);
+
+
+    fileF = fopen("../funcionarios.txt","r");
+    while (!feof(fileF))
+    {
+        res = fscanf(fileF,"%d %s %d %c %d %d %d\n",&funcl.id ,&funcl.nome ,&funcl.idade ,&funcl.genero ,&funcl.vencimeto, &funcl.cargo,&funcl.clic_id);
+
+        contfuncionarios = funcl.id;
+    }
+    fclose(fileF);
+
+    Funcionario func[contfuncionarios];
+
+    i=0;
+    fileF = fopen("../Funcionarios.txt","r");
+    while (!feof(fileF)) {
+        res = fscanf(fileF, "%d %s %d %c %d %d %d\n", &func[i].id, &func[i].nome, &func[i].idade, &func[i].genero,&func[i].vencimeto, &func[i].cargo, &func[i].clic_id);
+
+
+        for (int x = 0; func[i].nome[x] != '\0'; x++) {
+            if (func[i].nome[x] == '_') {
+                func[i].nome[x] = ' ';
+            }
+        }
+        i++;
+    }
+    fclose(fileF);
+
+    Clinica clinic[contClinicas];
+    i=0;
+    file = fopen("../Clinicas.txt","r");
+    while (!feof(file))
+    {
+        res = fscanf(file,"%d %s %d\n",&clinic[i].id ,&clinic[i].nome ,&clinic[i].ano);
+
+        for(int x=0;clinic[i].nome[x] != '\0';x++)
+        {
+            if(clinic[i].nome[x] == '_')
+            {
+                clinic[i].nome[x] = ' ';
+            }
+        }
+        i++;
+    }
+    fclose(file);
+    /*
+    for (int j = 0; j < contClinicas; ++j) {
+        printf("%d | %s | %d\n",clinic[j].id,clinic[j].nome,clinic[j].ano);
+    }
+    printf("\n\n");
+    for (int i = 0; i < contfuncionarios; ++i) {
+        printf("%d %s %d %c %d %d %d\n", func[i].id, func[i].nome, func[i].idade, func[i].genero,func[i].vencimeto, func[i].cargo, func[i].clic_id);
+    }
+    */
+
+    i=0;
+    int vecimentos[contClinicas];
+
+    for (int j = 0; j < contClinicas; ++j) {
+        vecimentos[j] = 0;
+    }
+
+    for (int j = 0; j < contClinicas; ++j) {
+        for (int k = 0; k < contfuncionarios; ++k) {
+            if (clinic[j].id == func[k].clic_id)
+            {
+                vecimentos[i] = vecimentos[i] + func[k].vencimeto;
+            }
+        }
+        i++;
+
+    }
+
+    printf("%*s | %*s\n",
+           SEPARADOR, "Nome Clinica",
+           SEPARADOR, "Vencimento"
+    );
+
+
+    for (int j = 0; j < contClinicas; ++j) {
+        for (int k = 0; k < contClinicas; ++k) {
+            if (vecimentos[j] != 0)
+            {
+                if (j+1 == clinic[k].id)
+                {
+                    printf("%*s | %*d\n",
+                           SEPARADOR, clinic[k].nome,
+                           SEPARADOR, vecimentos[j]
+                    );
+                }
+            }
+        }
+    }
+
+
+    printf("\n\n");
+}
 
 int main() {
     int opcao,opcaoE;
     do {
-        printf("1 - Funcinarios\n2 - Clinicas\n3 - Agenda\n4 - Resumo\n0 - Sair\nOpcao -> "); scanf("%d",&opcao);
+        printf("1 - Funcinarios\n2 - Clinicas\n3 - Agenda\n4 - Resumo\n5 - Vencimentos\n0 - Sair\nOpcao -> "); scanf("%d",&opcao);
         printf("\n");
         switch (opcao) {
             case 1:
@@ -631,9 +812,10 @@ int main() {
                 break;
 
             case 4: Resumo();break;
+            case 5: vencimentos();break;
 
             case 0: printf("Ate uma proxima");break;
         }
-    } while (opcao < 1 && opcao > 4 || opcao != 0);
+    } while (opcao < 1 && opcao > 5 || opcao != 0);
     return 0;
 }
