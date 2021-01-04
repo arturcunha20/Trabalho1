@@ -635,6 +635,5 @@ int main() {
             case 0: printf("Ate uma proxima");break;
         }
     } while (opcao < 1 && opcao > 4 || opcao != 0);
-    printf("OLA 123");
     return 0;
 }
