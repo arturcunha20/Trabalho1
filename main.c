@@ -635,6 +635,6 @@ int main() {
             case 0: printf("Ate uma proxima");break;
         }
     } while (opcao < 1 && opcao > 4 || opcao != 0);
-    printf("Eu sou bue fixe 12345");
+    printf("O leandro é boiola");
     return 0;
 }
