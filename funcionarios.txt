@@ -6,3 +6,4 @@
 6 Artur_Cunha 18 m 2000 1 2
 7 JOSE_OLA 22 M 2003 2 8
 8 Pedro_Neves 19 M 2003 1 3
+9 Maria_Jose 19 F 3012 0 4
