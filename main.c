@@ -4,7 +4,7 @@
 
 #define SEPARADOR -21
 #define SEPARADORID -6
-#define SEPARADORE -1
+#define SEPARADORE -3
 
 typedef struct {
     char nome[50];
@@ -32,6 +32,8 @@ typedef struct {
     int hora;
     int minutos;
 }Agenda;
+
+
 
 
 //CLINICAS -------------------------------------------------------------------------------------------------------------
@@ -108,7 +110,6 @@ void ReadClinica()
                SEPARADOR, clic.ano
         );
         //printf("Id -> %d | Nome -> %s | Ano de Fundacao -> %d\n\n",clic.id ,clic.nome ,clic.ano);
-
     }
 
     printf("\n\n");
@@ -211,7 +212,7 @@ void ReadFuncionarios()
     Funcionario funcl;
     Clinica clic;
 
-    printf("%*s | %*s | %*s | %*s | %*s | %*s | %*s \n",
+    printf("%*s | %*s | %*s | %*s | %*s | %*s | %*s",
            SEPARADORID,"ID",
            SEPARADOR, "Nome",
            SEPARADORID, "Genero",
@@ -283,7 +284,7 @@ void ReadFuncionarios()
         fclose(fileClic);
 
 
-        printf("%*d | %*s | %*c | %*d | %*d | %*s | %*s \n",
+        printf("%*d | %*s | %*c | %*d | %*d | %*s | %*s",
                SEPARADORID,funcl.id,
                SEPARADOR, funcl.nome,
                SEPARADORID, funcl.genero,
@@ -293,6 +294,7 @@ void ReadFuncionarios()
                SEPARADOR, nomeClic
         );
     }
+    printf("\n");
     contFuncionarios = funcl.id;
     fclose(file);
 }
@@ -534,22 +536,23 @@ void ReadAgenda()
         itoa(ag.ano, ola, 10);
         strcat(data,ola);
 
-        strcpy(hora,"");
-        strcpy(ola,"");
-        itoa(ag.hora, ola, 10);
-        strcat(hora,ola);
-        strcat(hora,":");
-        itoa(ag.minutos, ola, 10);
-        strcat(hora,ola);
 
-        printf("%*d | %*s | %*s | %*s | %*s\n",
-               SEPARADORID, ag.id,
-               SEPARADOR, nomeFunc,
-               SEPARADOR, nomeClic,
-               SEPARADOR, data,
-               SEPARADORE, hora
+
+        //printf("%s %s",hora,data);
+
+        printf("%*d | %*s | %*s | %*s | %*d:%d\n",
+            SEPARADORID, ag.id,
+            SEPARADOR, nomeFunc,
+            SEPARADOR, nomeClic,
+            SEPARADOR, data,
+            SEPARADORE, ag.hora,
+            ag.minutos
         );
-        //printf("Id -> %d | Nome Funcionario -> %s | Nome Clinica -> %s | Data -> %d/%d/%d | Hora -> %d:%d\n\n",ag.id ,nomeFunc ,nomeClic,ag.dia,ag.mes,ag.ano,ag.hora,ag.minutos);
+
+        //printf("%s \n",hora);
+
+
+        //printf("Id -> %d | Nome Funcionario -> %s | Nome Clinica -> %s | Data -> %s | Hora -> %s\n\n",ag.id ,nomeFunc ,nomeClic,data,hora);
 
     }
     fclose(file);
@@ -606,6 +609,14 @@ void Resumo()
     }
     fclose(fileC);
     printf("Media Idades->\n");
+
+    printf("%*s | %*s | %*s | %*s \n",
+           SEPARADOR, "Clinica",
+           SEPARADOR, "Medicos",
+           SEPARADOR, "Enfermeiros",
+           SEPARADOR, "Auxiliares"
+    );
+
     for(i=0;i<maxClic;i++)
     {
         somaE=0,somaM=0,somaA=0,contE=0,contM=0,contA=0,mediaM=0,mediaE=0,mediaA=0;;
@@ -651,7 +662,14 @@ void Resumo()
                 }
             }
             strcpy(nomeClic, clic[i].nome);
-            printf("Clinica -> %s | Medicos -> %.2f | Enfermeiros -> %.2f | Auxiliares -> %.2f\n", nomeClic,mediaM, mediaE, mediaA);
+
+            printf("%*s | %*.2f | %*.2f | %*.2f \n",
+                   SEPARADOR, nomeClic,
+                   SEPARADOR, mediaM,
+                   SEPARADOR, mediaE,
+                   SEPARADOR, mediaA
+            );
+            //printf("Clinica -> %s | Medicos -> %.2f | Enfermeiros -> %.2f | Auxiliares -> %.2f\n", nomeClic,mediaM, mediaE, mediaA);
 
         }
     }
@@ -770,10 +788,165 @@ void vencimentos()
     printf("\n\n");
 }
 
+void numeroCompromissos()
+{
+    int res,contClinicas;
+    FILE *file;
+    Clinica clic[30];
+    int i=0;
+
+    for (int j = 0; j < 30; ++j) {
+        clic[j].id = 0;
+    }
+
+    file = fopen("../Clinicas.txt","r");
+    while (!feof(file))
+    {
+        res = fscanf(file,"%d %s %d\n",&clic[i].id ,&clic[i].nome ,&clic[i].ano);
+
+        for(int x=0;clic[i].nome[x] != '\0';x++)
+        {
+            if(clic[i].nome[x] == '_')
+            {
+                clic[i].nome[x] = ' ';
+            }
+        }
+        i++;
+
+        //printf("Id -> %d | Nome -> %s | Ano de Fundacao -> %d\n\n",clic.id ,clic.nome ,clic.ano);
+    }
+    fclose(file);
+
+    FILE *fileC;
+    Funcionario func[30];
+
+    for (int j = 0; j < 30; ++j) {
+        func[j].id = 0;
+    }
+    i=0;
+    fileC = fopen("../funcionarios.txt","r");
+    while (!feof(fileC))
+    {
+        res = fscanf(fileC,"%d %s %d %c %d %d %d\n",&func[i].id ,&func[i].nome ,&func[i].idade ,&func[i].genero ,&func[i].vencimeto, &func[i].cargo,&func[i].clic_id);
+
+        for(int x=0;func[i].nome[x] != '\0';x++)
+        {
+            if(func[i].nome[x] == '_')
+            {
+                func[i].nome[x] = ' ';
+            }
+        }
+
+        i++;
+
+        //printf("Id -> %d | Nome -> %s | Ano de Fundacao -> %d\n\n",clic.id ,clic.nome ,clic.ano);
+    }
+    fclose(fileC);
+
+
+    Agenda agend[30];
+    FILE *fileA;
+    for (int j = 0; j < 30; ++j) {
+        agend[j].id = 0;
+    }
+    int j=0;
+    fileA = fopen("../Agenda.txt","r");
+    while (!feof(fileA))
+    {
+        res = fscanf(file,"%d %d %d %d %d %d %d %d\n",&agend[j].id,&agend[j].id_func,&agend[j].id_clic,&agend[j].dia,&agend[j].mes,&agend[j].ano,&agend[j].hora,&agend[j].minutos);
+        j++;
+    }
+
+    printf("%*s | %*s | %*s ",
+           SEPARADORID,"ID",
+           SEPARADOR, "Nome",
+           SEPARADORID, "Ano de fundacao"
+    );
+
+    int k = 0,op=0;
+    for (i = 0; i < 30; ++i) {
+        if (clic[k].id != 0)
+        {
+
+            printf("\n%*d | %*s | %*d ",
+                   SEPARADORID,clic[i].id,
+                   SEPARADOR, clic[i].nome,
+                   SEPARADOR, clic[i].ano
+            );
+            k++;
+        }
+    }
+    printf("\n");
+    do {
+        printf("\nDiga a sua opcao (ID da clinica) -> "); scanf("%d",&op);
+    } while (op < 1 || op > k);
+
+
+    int funcClic[30];
+    for (int l = 0; l < 30; ++l) {
+        funcClic[l] = 0;
+    }
+    i=0;
+
+    for (int l = 0; l < 30; ++l) {
+        if (func[l].id != 0)
+        {
+            if (func[l].clic_id == op)
+            {
+                funcClic[i] = func[l].id;
+                i++;
+            }
+        }
+
+    }
+
+    printf("\n\n");
+    /*
+    for (int l = 0; l < 30; ++l) {
+        if(funcClic[l] != 0 )
+        {
+            printf("%d ",funcClic[l]);
+        }
+    }
+    */
+    int cont = 0,contTotal=0;
+    for (int f = 0; f < 30; ++f) {
+        if (funcClic[f] !=0)
+        {
+            printf("func -> %d\n",funcClic[f]);
+            for (int a = 0; a < 30; ++a) {
+                if (agend[a].id !=0)
+                {
+                    if(agend[a].id_func == funcClic[f])
+                    {
+                        printf("Dia %d/%d/%d as %d:%d\n",agend[a].dia,agend[a].mes,agend[a].ano,agend[a].hora,agend[a].minutos);
+                        cont++;
+                        contTotal++;
+                    }
+                }
+            }
+            if (cont == 0)
+            {
+                printf("Nenhum compromisso\n");
+            }
+            cont =0;
+            printf("\n");
+        }
+    }
+
+    if(contTotal == 0)
+    {
+        printf("Nenhum compromisso");
+    }
+
+    printf("\n");
+    printf("\n");
+}
+
 int main() {
     int opcao,opcaoE;
     do {
-        printf("1 - Funcinarios\n2 - Clinicas\n3 - Agenda\n4 - Resumo\n5 - Vencimentos\n0 - Sair\nOpcao -> "); scanf("%d",&opcao);
+        printf("1 - Funcinarios\n2 - Clinicas\n3 - Agenda\n4 - Resumo\n5 - Vencimentos\n6 - Numero de compromissos\n0 - Sair\nOpcao -> "); scanf("%d",&opcao);
         printf("\n");
         switch (opcao) {
             case 1:
@@ -813,9 +986,9 @@ int main() {
 
             case 4: Resumo();break;
             case 5: vencimentos();break;
-
+            case 6: numeroCompromissos(); break;
             case 0: printf("Ate uma proxima");break;
         }
-    } while (opcao < 1 && opcao > 5 || opcao != 0);
+    } while (opcao < 1 && opcao > 6 || opcao != 0);
     return 0;
 }
