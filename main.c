@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <mm_malloc.h>
-
 #define SEPARADOR -21
 #define SEPARADORID -6
 #define SEPARADORE -3
@@ -41,9 +40,6 @@ typedef struct {
     int hora;
     int minutos;
 }Agenda;
-
-
-
 
 //CLINICAS -------------------------------------------------------------------------------------------------------------
 void InsertClinica()
@@ -126,11 +122,6 @@ void ReadClinica()
     fclose(file);
 }
 
-
-
-
-
-
 //Funcionarios ---------------------------------------------------------------------------------------------------------
 void InsertFuncionario()
 {
@@ -178,7 +169,6 @@ void InsertFuncionario()
         );
 
         id = clic.id;
-
     }
 
     printf("\n\n");
@@ -243,7 +233,6 @@ void InsertUtente()
     }
     fclose(fileU);
 
-
     fflush(stdin);
     printf("Diga o seu nome -> "); gets(ut.nome);
 
@@ -290,7 +279,6 @@ void ReadUtente()
     {
         res = fscanf(fileU,"%d %s %d %c %d\n",&ut.id ,&ut.nome ,&ut.idade ,&ut.genero ,&ut.numeroSNS);
 
-
         for(int x=0;ut.nome[x] != '\0';x++)
         {
             if(ut.nome[x] == '_')
@@ -312,8 +300,6 @@ void ReadUtente()
     printf("\n\n");
 
 }
-
-
 
 void ReadFuncionarios()
 {
@@ -346,7 +332,6 @@ void ReadFuncionarios()
                 funcl.nome[x] = ' ';
             }
         }
-
 
         switch (funcl.genero) {
             case 'F': strcpy(genero,"Feminino");break;
@@ -393,7 +378,6 @@ void ReadFuncionarios()
         }
 
         fclose(fileClic);
-
 
         printf("%*d | %*s | %*c | %*d | %*d | %*s | %*s",
                SEPARADORID,funcl.id,
@@ -503,12 +487,10 @@ void InsertAgenda()
 
     fclose(fileF);
     do {
-        printf("\nDiga o numero (id) da clinica que pertence -> "); scanf("%d",&opcao);
+        printf("\nDiga o numero (id) do Funcionario que pertence -> "); scanf("%d",&opcao);
     } while (opcao < 1 || opcao > id );
 
     ag.id_func = opcao;
-
-
 
     fileF = fopen("../funcionarios.txt","r");
     while (!feof(fileF)) {
@@ -563,9 +545,7 @@ void InsertAgenda()
         }
     }
 
-
     printf("\n\nHora (Hora:Minutos) -> ");
-
     do {
         printf("\nDiga a hora-> "); scanf("%d",&ag.hora);
     } while (ag.hora < 0 || ag.hora > 23);
@@ -706,21 +686,11 @@ void ReadAgenda()
         }
         fclose(fileU);
 
-
-        strcpy(data,"");
-        strcpy(ola,"");
-        itoa(ag.dia, ola, 10);
-        strcat(data,ola);
-        strcat(data,"/");
-        itoa(ag.mes, ola, 10);
-        strcat(data,ola);
-        strcat(data,"/");
-        itoa(ag.ano, ola, 10);
-        strcat(data,ola);
-
-
-
-        //printf("%s %s",hora,data);
+        strcpy(data,""); strcpy(ola,"");
+        itoa(ag.dia, ola, 10); strcat(data,ola);
+        strcat(data,"/"); itoa(ag.mes, ola, 10);
+        strcat(data,ola); strcat(data,"/");
+        itoa(ag.ano, ola, 10); strcat(data,ola);
 
         printf("%*d | %*s | %*s | %*s | %*s | %*d:%d\n",
             SEPARADORID, ag.id,
@@ -731,11 +701,6 @@ void ReadAgenda()
             SEPARADORE, ag.hora,
             ag.minutos
         );
-
-        //printf("%s \n",hora);
-
-
-        //printf("Id -> %d | Nome Funcionario -> %s | Nome Clinica -> %s | Data -> %s | Hora -> %s\n\n",ag.id ,nomeFunc ,nomeClic,data,hora);
 
     }
     fclose(file);
@@ -768,9 +733,6 @@ void Resumo()
     }
     maxClic = clicV.id;
     fclose(fileC);
-
-
-
 
     Funcionario func[maxFunc];
     Clinica clic[maxClic];
@@ -852,8 +814,6 @@ void Resumo()
                    SEPARADOR, mediaE,
                    SEPARADOR, mediaA
             );
-            //printf("Clinica -> %s | Medicos -> %.2f | Enfermeiros -> %.2f | Auxiliares -> %.2f\n", nomeClic,mediaM, mediaE, mediaA);
-
         }
     }
     printf("\n\n");
@@ -918,15 +878,6 @@ void vencimentos()
         i++;
     }
     fclose(file);
-    /*
-    for (int j = 0; j < contClinicas; ++j) {
-        printf("%d | %s | %d\n",clinic[j].id,clinic[j].nome,clinic[j].ano);
-    }
-    printf("\n\n");
-    for (int i = 0; i < contfuncionarios; ++i) {
-        printf("%d %s %d %c %d %d %d\n", func[i].id, func[i].nome, func[i].idade, func[i].genero,func[i].vencimeto, func[i].cargo, func[i].clic_id);
-    }
-    */
 
     i=0;
     int vecimentos[contClinicas];
@@ -943,14 +894,12 @@ void vencimentos()
             }
         }
         i++;
-
     }
 
     printf("%*s | %*s\n",
            SEPARADOR, "Nome Clinica",
            SEPARADOR, "Vencimento"
     );
-
 
     for (int j = 0; j < contClinicas; ++j) {
         for (int k = 0; k < contClinicas; ++k) {
@@ -966,8 +915,6 @@ void vencimentos()
             }
         }
     }
-
-
     printf("\n\n");
 }
 
@@ -996,8 +943,6 @@ void numeroCompromissosClic()
             }
         }
         i++;
-
-        //printf("Id -> %d | Nome -> %s | Ano de Fundacao -> %d\n\n",clic.id ,clic.nome ,clic.ano);
     }
     fclose(file);
 
@@ -1022,8 +967,6 @@ void numeroCompromissosClic()
         }
 
         i++;
-
-        //printf("Id -> %d | Nome -> %s | Ano de Fundacao -> %d\n\n",clic.id ,clic.nome ,clic.ano);
     }
     fclose(fileC);
 
@@ -1105,18 +1048,9 @@ void numeroCompromissosClic()
                 i++;
             }
         }
-
     }
 
     printf("\n\n");
-    /*
-    for (int l = 0; l < 30; ++l) {
-        if(funcClic[l] != 0 )
-        {
-            printf("%d ",funcClic[l]);
-        }
-    }
-    */
     int cont = 0,contTotal=0;
     for (int f = 0; f < 30; ++f) {
         if (funcClic[f] !=0)
@@ -1185,8 +1119,6 @@ void numeroCompromissosFunc()
         }
 
         i++;
-
-        //printf("Id -> %d | Nome -> %s | Ano de Fundacao -> %d\n\n",clic.id ,clic.nome ,clic.ano);
     }
     fclose(fileC);
 
@@ -1270,16 +1202,6 @@ void numeroCompromissosFunc()
         printf("\nDiga a sua opcao (ID da Funcionario) -> "); scanf("%d",&op);
     } while (op < 1 || op > k);
     i=0;
-    /*
-    for (int l = 0; l < 30; ++l) {
-        if(funcClic[l] != 0 )
-        {
-            printf("%d ",funcClic[l]);
-        }
-    }
-    */
-
-
 
     int cont = 0,contTotal=0;
 
@@ -1302,8 +1224,6 @@ void numeroCompromissosFunc()
             }
         }
     }
-
-
 
     if(contTotal == 0)
     {
